@@ -1,15 +1,16 @@
 if Posts.find().count() is 0
   Posts.insert
-    title: 'Introducing Telescope',
-    author: 'Sacha Greif',
-    url: 'http://sachagreif.com/introducing-telescope/'
+    title: 'Avant Gardener',
+    author: 'Courtney Barnett',
+    url: 'https://soundcloud.com/courtney-barnett-milk/courtney-barnett-avant'
 
   Posts.insert
-    title: 'Meteor',
-    author: 'Tom Coleman',
-    url: 'http://meteor.com'
+    title: 'Strategic Game of Life',
+    author: 'Thomas Hunter',
+    url: 'https://thomashunter.name/games/strategic-game-of-life/'
 
   Posts.insert
-    title: 'The Meteor Book',
-    author: 'Tom Coleman',
-    url: 'http://themeteorbook.com'
+    title: 'Travelling Under Pinnacle',
+    author: 'Philip',
+    url: 'http://i.imgur.com/RqyToAP.jpg'
+
