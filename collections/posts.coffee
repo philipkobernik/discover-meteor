@@ -1,6 +1,14 @@
 root = exports ? this
 root.Posts = new Meteor.Collection 'posts'
 
+Posts.allow
+  update: ownsDocument
+  remove: ownsDocument
+
+Posts.deny
+  update: (userId, post, fieldNames)->
+    _.without(fieldNames, 'url', 'title').length > 0
+
 Meteor.methods
   post: (postAttributes)->
     user = Meteor.user()
