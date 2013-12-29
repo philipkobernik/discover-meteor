@@ -19,6 +19,7 @@ if Posts.find().count() is 0
     author: sacha.profile.name
     url: 'https://soundcloud.com/courtney-barnett-milk/courtney-barnett-avant'
     submitted: now - 7 * hours
+    commentsCount: 2
 
   Comments.insert
     postId: gardenerId
@@ -38,9 +39,11 @@ if Posts.find().count() is 0
     title: 'Strategic Game of Life',
     author: 'Thomas Hunter',
     url: 'https://thomashunter.name/games/strategic-game-of-life/'
+    commentsCount: 0
 
   Posts.insert
     title: 'Travelling Under Pinnacle',
     author: 'Philip',
     url: 'http://i.imgur.com/RqyToAP.jpg'
+    commentsCount: 0
 
