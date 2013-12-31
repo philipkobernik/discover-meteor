@@ -47,3 +47,13 @@ if Posts.find().count() is 0
     url: 'http://i.imgur.com/RqyToAP.jpg'
     commentsCount: 0
 
+
+  for i in [1..20]
+    Posts.insert
+      title: "Test post #" + i
+      author: sacha.profile.name
+      userId: sacha._id
+      url: "http://google.com/?q=test-" + i
+      submitted: now - i * hours
+      commentsCount: 0
+
