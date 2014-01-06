@@ -1,8 +1,8 @@
 Meteor.publish 'posts', (findOptions)->
-  if _.isObject(findOptions)
-    Posts.find {}, findOptions
-  else
-    Posts.find {_id: findOptions}, limit: 1
+  Posts.find {}, findOptions
+
+Meteor.publish 'singlePost', (postId)->
+  return postId and Posts.find postId
 
 Meteor.publish 'comments', (postId)->
   Comments.find postId: postId

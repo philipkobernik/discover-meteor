@@ -22,12 +22,13 @@ Router.map ->
     waitOn: ->
       [
         Meteor.subscribe('comments', @params._id),
-        Meteor.subscribe('posts', @params._id)
+        Meteor.subscribe('singlePost', @params._id)
       ]
     data: -> Posts.findOne(@params._id)
 
   @route 'postEdit',
     path: '/posts/:_id/edit'
+    waitOn: -> Meteor.subscribe('singlePost', @params._id)
     data: -> Posts.findOne(@params._id)
 
   @route 'postSubmit',
