@@ -8,6 +8,7 @@ PostsListController = RouteController.extend
   data: ->
     return {
       posts: Posts.find {}, @findOptions()
+      nextPath: @route.path(postsLimit: @limit() + @increment)
     }
 
 Router.configure

@@ -48,7 +48,7 @@ if Posts.find().count() is 0
     commentsCount: 0
 
 
-  for i in [1..20]
+  for i in [1..7]
     Posts.insert
       title: "Test post #" + i
       author: sacha.profile.name
