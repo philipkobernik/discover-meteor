@@ -1,3 +1,15 @@
+PostsListController = RouteController.extend
+  template: 'postsList'
+  increment: 5
+  limit: -> parseInt(@params.postsLimit) or @increment
+  findOptions: -> sort: {submitted: -1}, limit: @limit()
+  waitOn: ->
+    Meteor.subscribe('posts', @findOptions())
+  data: ->
+    return {
+      posts: Posts.find {}, @findOptions()
+    }
+
 Router.configure
   layoutTemplate: 'layout'
   loadingTemplate: 'loading'
@@ -22,14 +34,7 @@ Router.map ->
 
   @route 'postsList',
     path: '/:postsLimit?'
-    waitOn: ->
-      postsLimit = parseInt @params.postsLimit or 5
-      Meteor.subscribe('posts', {submitted: -1}, postsLimit)
-    data: ->
-      postsLimit = parseInt @params.postsLimit || 5
-      return {
-        posts: Posts.find({}, sort: {submitted: -1}, limit: postsLimit)
-      }
+    controller: PostsListController
 
 requireLogin = ->
   unless Meteor.user()

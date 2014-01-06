@@ -1,9 +1,8 @@
-Meteor.publish 'posts', (sortOrId, limit)->
-  if limit?
-    Posts.find {}, sort: sortOrId, limit: limit
+Meteor.publish 'posts', (findOptions)->
+  if _.isObject(findOptions)
+    Posts.find {}, findOptions
   else
-    Posts.find {_id: sortOrId}, limit: 1
-
+    Posts.find {_id: findOptions}, limit: 1
 
 Meteor.publish 'comments', (postId)->
   Comments.find postId: postId
